@@ -79,13 +79,12 @@ select_country('Iceland','John')
 select_country("Australia","Alizée")
 select_country("Netherlands","Salomon")
 
-
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
                     locationmode='country names',
                     color='available',
                     color_discrete_map={True: 'steelblue', False: 'gray'},
-                    center={'lat':51 , 'lon':20 },
+                    center={'lat':50 , 'lon':20 },
                     hover_name='country',
                     title='Eurovision 2025 Participants')
 
