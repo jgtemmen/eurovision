@@ -1,3 +1,4 @@
+# Packages
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -75,38 +76,33 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     title='Eurovision 2025')
 
 # Australia Inset Map
-fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
-                    locations='country',
-                    locationmode='country names',
-                    color='available',
-                    color_discrete_map={True: 'blue', False: 'lightgray'},
-                    center={'lat': -25, 'lon': 135},
-                    fitbounds='locations',
-                    hover_data=['semi'],
-                    hover_name='country')
+fig.add_trace(
+    px.choropleth(EV25[EV25['country'] == 'Australia'],
+                  locations='country',
+                  locationmode='country names',
+                  color='available',
+                  color_discrete_map={True: 'blue', False: 'lightgray'},
+                  projection="orthographic",  # Use orthographic for a smaller globe-like inset
+                  ).data[0]
+)
 
-# Update layout to add inset map
 fig.update_layout(
-    geo=dict(
-        scope='europe'
-    ),
-    layout_geo2=dict(  # Changed from geo2=dict to layout_geo2=dict
+    geo=dict(scope='europe'),
+    geo2=dict(
         scope='asia',
         showland=True,
         landcolor='lightgray',
         showocean=True,
         oceancolor='lightblue',
         center={'lat': -25, 'lon': 135},
-        projection_scale=0.4,
+        projection_scale=0.25,
         x=0.8,
         y=0.1,
         xanchor='right',
         yanchor='bottom'
-    )
+    ),
+    showlegend=False  # Hide legend (optional)
 )
-
-# Add the trace from fig2 to fig
-fig.add_trace(fig2.data[0])
 
 st.title('Eurovision 2025 Party!!')
 st.subheader("Available Countries")
