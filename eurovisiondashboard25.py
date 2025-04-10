@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1Z_sMi6yAd2H24D6Ry7sxgKT1kGzUfxtJ
 """
 
-#!pip install streamlit
-#!pip install ngrok
-
 #Packages
 import pandas as pd
 import plotly.express as px
