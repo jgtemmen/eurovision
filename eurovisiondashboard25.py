@@ -86,11 +86,9 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     color='available',
                     color_discrete_map={True: 'steelblue', False: 'gray'},
                     center={'lat':55 , 'lon':25 },
-                    fitbounds='locations',
                     hover_name='country',
                     title='Eurovision 2025 Participants')
 
-fig.update_layout(margin={"r":60,"t":80,"l":20,"b":40})
 
 fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
                     locations='country',
