@@ -88,6 +88,7 @@ fig = go.Choropleth(
     fitbounds="locations",
     hovertext=EV25[EV25['country'] != 'Australia'].apply(lambda row: f"Semi: {row['semi']}", axis=1),
     text=EV25[EV25['country'] != 'Australia']['country']
+)
 
 #fig.show()
 
