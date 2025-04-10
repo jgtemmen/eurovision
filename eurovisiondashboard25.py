@@ -87,7 +87,6 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                      center={'lat':48 , 'lon':21 },
                     fitbounds='locations',
                     hover_name='country',
-                    hover_data = 'semi',
                     title='Eurovision 2025 Participants')
 
 fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
@@ -98,7 +97,6 @@ fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
                     center={'lat': -35, 'lon': 141},
                     fitbounds='locations',
                     hover_name='country',
-                    hover_data = 'text'
                     )
 
 st.title('Eurovision 2025 Party!!')
