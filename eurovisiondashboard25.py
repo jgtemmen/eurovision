@@ -76,6 +76,7 @@ def select_country(country,name):
           guest_list['country'].append(country)
           guest_list['name'].append(name)
 select_country('Iceland','John')
+select_country("Australia","Alizée")
 
 
 
