@@ -77,7 +77,7 @@ def select_country(country,name):
           guest_list['name'].append(name)
 select_country('Iceland','John')
 select_country("Australia","Alizée")
-
+select_country("Netherlands","Salomon")
 
 
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
