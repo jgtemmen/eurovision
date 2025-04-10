@@ -88,7 +88,7 @@ fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
                     hover_name='country'
                     )
 
-st.title('Eurovision 2025 Party!!')
+st.title(':flag-eu:Eurovision 2025 Party!!:flag-eu:')
 
 st.subheader("Available Countries")
 
