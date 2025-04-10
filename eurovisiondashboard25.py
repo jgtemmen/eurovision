@@ -89,7 +89,7 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     fitbounds='locations',
                     hover_name='country',
                     title='Eurovision 2025 Participants')
-fig.update_geos(zoom=5)
+
 fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
                     locations='country',
                     locationmode='country names',
