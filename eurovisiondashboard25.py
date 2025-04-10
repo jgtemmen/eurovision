@@ -103,4 +103,4 @@ with col1:
 
 with col2:
     st.plotly_chart(fig2, use_container_width=True)
-st.table({'Country':[],'Name':[]})
+st.table({'Country':['Country'],'Name':['Name']})
