@@ -71,7 +71,7 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locationmode='country names',
                     color='available',
                     color_discrete_map={True: 'blue', False: 'lightgray'},
-                    marker_line = dict(color='black', width=2)
+                    marker_line = dict(color='black', width=2),
                     scope='europe',
                     fitbounds='locations',
                     hover_data=['semi'],
