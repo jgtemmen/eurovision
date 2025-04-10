@@ -68,6 +68,9 @@ for i in Countries:
       print(i,"was missed")
 EV25 = pd.DataFrame(ev25_data)
 
+#Add Changes here
+EV25['']
+
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
                     locationmode='country names',
@@ -76,7 +79,7 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     scope='europe',
                     fitbounds='locations',
                     hover_name='country',
-                    hover_data = 'text',
+                    hover_data = 'semi',
                     title='Eurovision 2025 Participants')
 
 fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
