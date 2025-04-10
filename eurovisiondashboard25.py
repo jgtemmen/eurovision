@@ -54,7 +54,9 @@ semi2 = ['Australia','Montenegro','Ireland','Latvia','Armenia','Austria','Greece
            'Serbia','Finland']
 finalists = ['Switzerland','France','Germany','Italy','Spain','United Kingdom']
 
-ev25_data = {'country':Countries,'semi':[],"available":[True for i in Countries]}
+ev25_data = {'country':Countries,'semi':[],
+             "available":[True for i in Countries],
+            "text":["" for i in Countries]}
 for i in Countries:
     if i in finalists:
         ev25_data['semi'].append(3)
