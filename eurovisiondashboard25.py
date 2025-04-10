@@ -69,7 +69,7 @@ for i in Countries:
 EV25 = pd.DataFrame(ev25_data)
 
 #Add Changes here
-EV25['']
+#EV25['']
 
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
