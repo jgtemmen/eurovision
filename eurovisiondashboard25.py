@@ -127,7 +127,7 @@ euro_fig.update_layout(
         projection_scale=0.5,
         x=0.8, y=0.1,
         xanchor='right', yanchor='bottom'
-    )
+    ))
     
 st.title('Eurovision 2025 Party!!')
 
