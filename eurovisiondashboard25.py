@@ -70,8 +70,8 @@ EV25 = pd.DataFrame(ev25_data)
 
 #Add Changes here
 def select_country(country,name):
-          df.loc[df['country'] == country,'text'] = name
-          df.loc[df['country'] == country,'available'] = False
+          EV25.loc[EV25['country'] == country,'text'] = name
+          EV25.loc[EV25['country'] == country,'available'] = False
 select_country('Iceland','John')
 
 
