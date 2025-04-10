@@ -79,33 +79,57 @@ EV25 = pd.DataFrame(ev25_data)
 
 EV25[EV25['country'] != 'Australia']
 
-fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
+fig = go.Choropleth(
+    locations=EV25[EV25['country'] != 'Australia']['country'],
+    locationmode='country names',
+    z=EV25[EV25['country'] != 'Australia']['available'],
+    colorscale=[[0, 'lightgray'], [1, 'blue']],
+    projection={"scope": 'europe'},
+    fitbounds="locations",
+    hovertext=EV25[EV25['country'] != 'Australia'].apply(lambda row: f"Semi: {row['semi']}", axis=1),
+    text=EV25[EV25['country'] != 'Australia']['country']
+
+#fig.show()
+
+fig2 = go.Choropleth(EV25[EV25['country'] == 'Australia'],
                     locations='country',
                     locationmode='country names',
-                    color='available',
-                    color_discrete_map={True: 'blue', False: 'lightgray'}, # Define colors
-                    scope='europe',
+                    z='available',
+                    colorscale=[[0, 'lightgray'], [1, 'blue']], # Define colors
+                    projection={"center": {'lat': -35, 'lon': 141}},,
                     fitbounds='locations',
-                    hover_data=['semi'],
-                    hover_name='country',
-                    title='Eurovision 2025')
-
-fig.show()
-
-fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
-                    locations='country',
-                    locationmode='country names',
-                    color='available',
-                    color_discrete_map={True: 'blue', False: 'lightgray'}, # Define colors
-                    center={'lat': -35, 'lon': 141},
-                    fitbounds='locations',
-                    hover_data=['semi'],
-                    hover_name='country'
+                    hovertext=EV25[EV25['country'] == 'Australia'].apply(lambda row: f"Semi: {row['semi']}", axis=1),
+                    text=EV25[EV25['country'] == 'Australia']['country']
                     )
-fig2.show()
+#fig2.show()
 
+euro_fig = make_subplots(
+    rows=1, cols=1,
+    specs=[[{'type':'choropleth'}]],
+    #subplot_titles=('Eurovision 2025') 
+)
+euro_fig.add_trace(fig, row=1, col=1)
+
+euro_fig.add_trace(fig2, row=1, col=1)
+
+euro_fig.update_layout(
+    geo=dict(
+        scope='europe'
+    ),
+    geo2=dict(
+        scope='asia',
+        showland=True,
+        landcolor='lightgray',
+        showocean=True,
+        oceancolor='lightblue',
+        center={'lat': -25, 'lon': 135},
+        projection_scale=0.5,
+        x=0.8, y=0.1,
+        xanchor='right', yanchor='bottom'
+    )
+    
 st.title('Eurovision 2025 Party!!')
 
 st.subheader("Available Countries")
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(euro_fig, use_container_width=True)
