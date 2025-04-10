@@ -77,8 +77,6 @@ for i in Countries:
       print(i,"was missed")
 EV25 = pd.DataFrame(ev25_data)
 
-EV25[EV25['country'] != 'Australia']
-
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
                     locationmode='country names',
