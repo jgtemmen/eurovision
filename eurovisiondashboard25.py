@@ -77,6 +77,7 @@ for i in Countries:
       print(i,"was missed")
 EV25 = pd.DataFrame(ev25_data)
 
+# Main Europe Map
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
                     locationmode='country names',
@@ -88,18 +89,16 @@ fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     hover_name='country',
                     title='Eurovision 2025')
 
-fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
-                    locations='country',
-                    locationmode='country names',
-                    color='available',
-                    color_discrete_map={True: 'blue', False: 'lightgray'}, # Define colors
-                    center={'lat': -35, 'lon': 141},
-                    fitbounds='locations',
-                    hover_data=['semi'],
-                    hover_name='country'
-                    )
-
-fig.add_trace(fig2.data[0]) # Add Australia map as a trace
+# Add Australia Inset Map as a trace
+fig.add_trace(
+    px.choropleth(EV25[EV25['country'] == 'Australia'],
+                  locations='country',
+                  locationmode='country names',
+                  color='available',
+                  color_discrete_map={True: 'blue', False: 'lightgray'},
+                  projection="orthographic",  # Use orthographic for a globe-like inset
+                  ).data[0]
+)
 
 # Update layout for inset map positioning
 fig.update_layout(
@@ -122,7 +121,5 @@ fig.update_layout(
 )
 
 st.title('Eurovision 2025 Party!!')
-
 st.subheader("Available Countries")
-
 st.plotly_chart(fig, use_container_width=True)
