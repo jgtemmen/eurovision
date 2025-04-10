@@ -77,20 +77,16 @@ for i in Countries:
       print(i,"was missed")
 EV25 = pd.DataFrame(ev25_data)
 
-EV25[EV25['country'] != 'Australia']
-
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
                     locationmode='country names',
                     color='available',
-                    color_discrete_map={True: 'blue', False: 'lightgray'}, # Define colors
+                    color_discrete_map={True: 'blue', False: 'lightgray'},
                     scope='europe',
                     fitbounds='locations',
                     hover_data=['semi'],
                     hover_name='country',
                     title='Eurovision 2025')
-
-fig.show()
 
 fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
                     locations='country',
@@ -102,7 +98,28 @@ fig2 = px.choropleth(EV25[EV25['country'] == 'Australia'],
                     hover_data=['semi'],
                     hover_name='country'
                     )
-fig2.show()
+
+fig.add_trace(fig2.data[0]) # Add Australia map as a trace
+
+# Update layout for inset map positioning
+fig.update_layout(
+    geo=dict(scope='europe'),
+    geo2=dict(
+        scope='asia',
+        showland=True,
+        landcolor='lightgray',
+        showocean=True,
+        oceancolor='lightblue',
+        center={'lat': -25, 'lon': 135},  # Center on Australia
+        projection_scale=0.3,  # Adjust size of the inset
+        x=0.8,  # x-position of the inset (0 to 1)
+        y=0.1,  # y-position of the inset (0 to 1)
+        xanchor='right',
+        yanchor='bottom'
+    ),
+    showlegend=False,  # Hide legend (optional)
+    margin=dict(l=0, r=0, b=0, t=50)  # Adjust margins
+)
 
 st.title('Eurovision 2025 Party!!')
 
