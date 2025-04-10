@@ -69,9 +69,12 @@ for i in Countries:
 EV25 = pd.DataFrame(ev25_data)
 
 #Add Changes here
+guest_list = {'country':[],'name':[]}
 def select_country(country,name):
           EV25.loc[EV25['country'] == country,'text'] = name
           EV25.loc[EV25['country'] == country,'available'] = False
+          guest_list['country'].append(country)
+          guest_list['name'].append(name)
 select_country('Iceland','John')
 
 
@@ -108,4 +111,4 @@ with col1:
 
 with col2:
     st.plotly_chart(fig2, use_container_width=True)
-st.table({'Country':[''],'Name':['']})
+st.table(guest_list)
