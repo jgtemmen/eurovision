@@ -92,5 +92,9 @@ st.title('Eurovision 2025 Party!!')
 
 st.subheader("Available Countries")
 
-st.plotly_chart(fig, use_container_width=True)
-st.plotly_chart(fig2, use_container_width=True)
+col1, col2 = st.columns([0.6, 0.4])
+with col1:
+    st.plotly_chart(fig, use_container_width=True)
+
+with col2:
+    st.plotly_chart(fig2, use_container_width=True)
