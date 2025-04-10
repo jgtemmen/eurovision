@@ -69,7 +69,12 @@ for i in Countries:
 EV25 = pd.DataFrame(ev25_data)
 
 #Add Changes here
-#EV25['']
+def select_country(country,name):
+          df.loc[df['country'] == country,'text'] = name
+          df.loc[df['country'] == country,'available'] = False
+select_country('Iceland','John')
+
+
 
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
                     locations='country',
