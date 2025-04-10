@@ -96,7 +96,7 @@ fig2 = go.Choropleth(EV25[EV25['country'] == 'Australia'],
                     locationmode='country names',
                     z='available',
                     colorscale=[[0, 'lightgray'], [1, 'blue']], # Define colors
-                    projection={"center": {'lat': -35, 'lon': 141}},,
+                    projection={"center": {'lat': -35, 'lon': 141}},
                     fitbounds='locations',
                     hovertext=EV25[EV25['country'] == 'Australia'].apply(lambda row: f"Semi: {row['semi']}", axis=1),
                     text=EV25[EV25['country'] == 'Australia']['country']
