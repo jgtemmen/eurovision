@@ -81,6 +81,7 @@ select_country("Australia","Alizée")
 select_country("Iceland","John")
 select_country("Netherlands","Salomon")
 select_country("Ireland","Paolo")
+select_country("France","Hazal")
 
 
 fig = px.choropleth(EV25[EV25['country'] != 'Australia'],
