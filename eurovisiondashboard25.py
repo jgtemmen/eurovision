@@ -75,6 +75,7 @@ def select_country(country,name):
           EV25.loc[EV25['country'] == country,'available'] = False
           guest_list['country'].append(country)
           guest_list['name'].append(name)
+          
 select_country("Italy","Victor")
 select_country("Australia","Alizée")
 select_country("Iceland","John")
