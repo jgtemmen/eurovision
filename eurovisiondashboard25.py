@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+i# -*- coding: utf-8 -*-
 #Packages
 import pandas as pd
 import plotly.express as px
@@ -76,7 +76,7 @@ def select_country(country,name):
           guest_list['country'].append(country)
           guest_list['name'].append(name)
           
-select_country("Italy","Victor")
+select_country("Estonia","Victor")
 select_country("Australia","Alizée")
 select_country("Iceland","John")
 select_country("Netherlands","Salomon")
