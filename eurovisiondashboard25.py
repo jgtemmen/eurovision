@@ -81,7 +81,7 @@ select_country("Australia","Alizée")
 select_country("Iceland","John")
 select_country("Netherlands","Salomon")
 select_country("Ireland","Paolo")
-select_country("France","Hazal")
+select_country("Sweden","Hazal")
 select_country("Spain","Gulce")
 select_country("Lithuania","Thomas")
 
